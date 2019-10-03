@@ -1,1 +1,3 @@
-# Block-s-Wife
+# Blocks-Wife
+
+A project for the interactive narrtive design course 
