@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementPlanet : MonoBehaviour
 {
     [SerializeField]
-    private CharacterController2D controller;
+    private CharacterController2DPlanet controller;
 
     private float horizontalMovement = 0f;
     private bool jump = false;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //controller.Move(horizontalMovement * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMovement * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
 }
