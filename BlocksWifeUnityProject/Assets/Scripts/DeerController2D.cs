@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2D : PhysicsObject
+public class DeerController2D : PhysicsObject
 {
-
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 7;
     public bool flipped;
 
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     //private Animator animator;
 
     // Use this for initialization
@@ -44,9 +43,11 @@ public class PlayerController2D : PhysicsObject
             flipped = !flipped;
         }
 
-        //animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-
         targetVelocity = move * maxSpeed;
+    }
+
+    public void JumpSky()
+    {
+        gravityVelocity.y = jumpTakeOffSpeed;
     }
 }

@@ -8,6 +8,7 @@ public class PhysicsObject : MonoBehaviour
 
     public float minGroundNormal = 48f;
     public float gravityModifier = 1f;
+    public bool physicsActive = true;
 
     protected Vector2 targetVelocity;
     protected bool grounded;
@@ -41,7 +42,9 @@ public class PhysicsObject : MonoBehaviour
     void Update()
     {
         targetVelocity = Vector2.zero;
-        ComputeVelocity();
+
+        if (physicsActive)
+            ComputeVelocity();
     }
 
     protected virtual void ComputeVelocity()
@@ -63,7 +66,7 @@ public class PhysicsObject : MonoBehaviour
         Vector2 move = moveAlongGround * Vector2.Dot(moveAlongGround, deltaPosition);
 
         Movement(move, false);
-        
+
         move = transform.up * Vector2.Dot(transform.up, deltaPosition);
 
         Movement(move, true);
